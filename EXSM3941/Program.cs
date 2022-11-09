@@ -11,6 +11,7 @@
             // If we declare the int inside the try block, C# thinks it MIGHT not exist for the outputs (if there's an exception) so it won't let it compile.
             // Declaring it before the try block with a default value allows the outputs to work even if the user enters garbage.
             int myInt = 0;
+            string determinedOutput = "";
             try
             {
                 myInt = int.Parse(Console.ReadLine());
@@ -20,10 +21,25 @@
                 Console.WriteLine(e.Message);
             }
 
+            // If side runs if the condition is true.
+            if (myInt > 10)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                determinedOutput = "That's greater than 10!";
+            }
+            // Else side runs if the condition is false.
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                determinedOutput = "That's less than or equal to 10!";
+            }
+            Console.WriteLine(determinedOutput);
+            Console.ForegroundColor = ConsoleColor.White;
 
-        Console.WriteLine("You entered this:");
+
+            Console.WriteLine("You entered this:");
             // Concatenation (Requires string.Format for formatting)
-            Console.WriteLine(myString+" "+string.Format("{0:C2}",myInt));
+            Console.WriteLine(myString + " " + string.Format("{0:C2}", myInt));
             // Parameterized Output (Supports Nice Formatting)
             Console.WriteLine("{0} {1:C2}", myString, myInt);
             // String Interpolation (Supports Nice Formatting)

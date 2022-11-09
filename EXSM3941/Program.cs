@@ -2,15 +2,18 @@
 {
     internal class Program
     {
+
+
         // Void in this case means nothing is returned.
-        static void ExampleFunction()
+        static string ExampleFunction(string input)
         {
-            Console.WriteLine("Test 123");
+            Console.WriteLine($"Input: {input}");
+            return input.ToUpper();
         }
         static void Main(string[] args)
         // The start of Main() is the entry point of the program. Execution starts here when we run the program.
         {
-            ExampleFunction();
+            string uppercase = ExampleFunction("Hello!");
             Console.Write("Please enter a first word: ");
             string myString = Console.ReadLine().Trim().ToUpper();
             Console.Write("Please enter a number: ");

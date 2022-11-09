@@ -2,9 +2,15 @@
 {
     internal class Program
     {
+        // Void in this case means nothing is returned.
+        static void ExampleFunction()
+        {
+            Console.WriteLine("Test 123");
+        }
         static void Main(string[] args)
         // The start of Main() is the entry point of the program. Execution starts here when we run the program.
         {
+            ExampleFunction();
             Console.Write("Please enter a first word: ");
             string myString = Console.ReadLine().Trim().ToUpper();
             Console.Write("Please enter a number: ");

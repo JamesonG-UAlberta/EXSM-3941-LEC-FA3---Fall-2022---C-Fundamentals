@@ -5,15 +5,17 @@
 
 
         // Void in this case means nothing is returned.
-        static string ExampleFunction(string input)
+        static void ExampleFunction(string input, out string output)
         {
             Console.WriteLine($"Input: {input}");
-            return input.ToUpper();
+            output = input.ToUpper();
         }
         static void Main(string[] args)
         // The start of Main() is the entry point of the program. Execution starts here when we run the program.
         {
-            string uppercase = ExampleFunction("Hello!");
+            string uppercase;
+            ExampleFunction("Hello!", out uppercase);
+
             Console.Write("Please enter a first word: ");
             string myString = Console.ReadLine().Trim().ToUpper();
             Console.Write("Please enter a number: ");

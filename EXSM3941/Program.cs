@@ -42,6 +42,39 @@
             Console.WriteLine(determinedOutput);
             Console.ForegroundColor = ConsoleColor.White;
 
+
+            // While & For loops run 0 or more times.
+            // Initialize
+            int whileCount = 1;
+            // Test
+            while (whileCount <= myInt)
+            {
+                // Process
+                Console.WriteLine(whileCount);
+                // Modify
+                whileCount++;
+            }
+
+            // Initialize; Modify; Test;
+            for (int forCount = 1; forCount <= myInt; forCount++)
+            {
+                // Process
+                Console.WriteLine(forCount);
+            }
+
+            // Do while loops run 1 or more times.
+            // Initialize
+            int doWhileCount = 1;
+            do
+            {
+                // Process
+                Console.WriteLine(doWhileCount);
+                // Modify
+                doWhileCount++;
+            // Test
+            } while (doWhileCount <= myInt);
+
+
             Console.WriteLine("You entered this:");
             // Concatenation (Requires string.Format for formatting)
             Console.WriteLine(myString + " " + string.Format("{0:C2}", myInt));

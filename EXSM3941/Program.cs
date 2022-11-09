@@ -10,11 +10,16 @@
             Console.WriteLine($"Input: {input}");
             output = input.ToUpper();
         }
+        static void RefExample(ref string reference)
+        {
+            reference = reference.ToLower();
+        }
         static void Main(string[] args)
         // The start of Main() is the entry point of the program. Execution starts here when we run the program.
         {
             string uppercase;
             ExampleFunction("Hello!", out uppercase);
+            RefExample(ref uppercase);
 
             Console.Write("Please enter a first word: ");
             string myString = Console.ReadLine().Trim().ToUpper();

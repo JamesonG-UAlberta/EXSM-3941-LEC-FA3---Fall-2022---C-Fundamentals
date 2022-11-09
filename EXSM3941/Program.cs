@@ -28,14 +28,19 @@
                 determinedOutput = "That's greater than 10!";
             }
             // Else side runs if the condition is false.
-            else
+            // Because single-statement if and elses can be used without braces, we can stick a second if directly beside an else, to make a decision tree.
+            else if (myInt < 10)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                determinedOutput = "That's less than or equal to 10!";
+                determinedOutput = "That's less than 10!";
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                determinedOutput = "That's 10!";
             }
             Console.WriteLine(determinedOutput);
             Console.ForegroundColor = ConsoleColor.White;
-
 
             Console.WriteLine("You entered this:");
             // Concatenation (Requires string.Format for formatting)

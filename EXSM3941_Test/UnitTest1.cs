@@ -1,25 +1,60 @@
 namespace EXSM3941_Test
 {
-    public class UnitTest1
+    public class TicTacToe_Tests
     {
-        [Fact]
-        public void AddOne_Test_Max() => Assert.Throws(typeof(Exception), () => { Program.AddOne(int.MaxValue); });
+        [Theory,
+            // Not a number.
+            InlineData('A', false),
+            InlineData('a', false),
+            InlineData(' ', false),
+            InlineData('\n', false),
+            InlineData('|', false),
+            InlineData('-', false),
+            InlineData('!', false),
+            // A number that is never on the board.
+            InlineData('0', false),
+            // A number that is typically on the board, but occupied by X.
+            InlineData('1', false),
+            // A number that is typically on the board, but occupied by O.
+            InlineData('3', false),
+            // The valid spaces.
+            InlineData('2', true),
+            InlineData('4', true),
+            InlineData('6', true),
+            InlineData('7', true),
+            InlineData('8', true)]
+        public void ValidateSpace_Test_InProgress(char input, bool expectedResult)
+        {
+            char[] board = new char[] { 'X', '2', 'O', '4', 'X', '6', '7', '8', 'O' };
+            Assert.Equal(expectedResult, Program.ValidateSpace(board, input));
+        }
+
 
         [Theory,
-        // Positive value.
-        InlineData(1, 2),
-        // Zero value.
-        InlineData(0, 1),
-        // Negative value.
-        InlineData(-1, 0),
-        // Negative mid-ground value.
-        InlineData(-1000, -999),
-        // Positive mid-ground value.
-        InlineData(1000, 1001),
-        // Edge case lowest.
-        InlineData(int.MinValue, int.MinValue+1),
-        // Edge case highest.
-        InlineData(int.MaxValue-1, int.MaxValue)]
-        public void AddOne_Test(int paramOne, int expectedResult) => Assert.Equal(expectedResult, Program.AddOne(paramOne));
+        // Not a number.
+        InlineData('A', false),
+        InlineData('a', false),
+        InlineData(' ', false),
+        InlineData('\n', false),
+        InlineData('|', false),
+        InlineData('-', false),
+        InlineData('!', false),
+        // A number that is never on the board.
+        InlineData('0', false),
+        // The valid spaces.
+        InlineData('1', true),
+        InlineData('2', true),
+        InlineData('3', true),
+        InlineData('4', true),
+        InlineData('5', true),
+        InlineData('6', true),
+        InlineData('7', true),
+        InlineData('8', true),
+        InlineData('9', true)]
+        public void ValidateSpace_Test_FreshBoard(char input, bool expectedResult)
+        {
+            char[] board = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            Assert.Equal(expectedResult, Program.ValidateSpace(board, input));
+        }
     }
 }

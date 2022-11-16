@@ -1,8 +1,12 @@
 ﻿namespace EXSM3941
 {
-    internal class Program
+    public class Program
     {
-
+        public static int AddOne(int value)
+        {
+            if (value == int.MaxValue) throw new Exception("I can't add one to that!");
+            return value + 1;
+        }
 
         // Void in this case means nothing is returned.
         static void ExampleFunction(string input, out string output)

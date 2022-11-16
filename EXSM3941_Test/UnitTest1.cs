@@ -3,10 +3,7 @@ namespace EXSM3941_Test
     public class UnitTest1
     {
         [Fact]
-        public void AddOne_Test_Max()
-        {
-            Assert.Throws(typeof(Exception), () => { Program.AddOne(int.MaxValue); });
-        }
+        public void AddOne_Test_Max() => Assert.Throws(typeof(Exception), () => { Program.AddOne(int.MaxValue); });
 
         [Theory,
         // Positive value.
@@ -23,10 +20,6 @@ namespace EXSM3941_Test
         InlineData(int.MinValue, int.MinValue+1),
         // Edge case highest.
         InlineData(int.MaxValue-1, int.MaxValue)]
-        public void AddOne_Test(int paramOne, int expectedResult)
-        {
-            var actualResult = Program.AddOne(paramOne);
-            Assert.Equal(expectedResult, actualResult);
-        }
+        public void AddOne_Test(int paramOne, int expectedResult) => Assert.Equal(expectedResult, Program.AddOne(paramOne));
     }
 }

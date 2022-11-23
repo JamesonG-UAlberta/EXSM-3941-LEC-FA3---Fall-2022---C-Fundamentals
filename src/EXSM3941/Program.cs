@@ -4,16 +4,19 @@
     {
         static void Main(string[] args)
         {
-            DateOnly christmas = new DateOnly(2000, 12, 25);
-            DateTime now = DateTime.Now;
+            Console.Write("Please enter your date of birth, YYYY-MM-DD: ");
+            DateTime birthDate = DateTime.Parse(Console.ReadLine().Trim());
+            TimeSpan age = DateTime.Now.Subtract(birthDate);
+            Console.WriteLine($"You are {age.Days/365} years, {age.Days%365} days, {age.Hours} hours and {age.Minutes} minutes old, if you were born at midnight!");
 
+            Console.Write("Please enter someone else's date of birth, YYYY-MM-DD: ");
+            DateTime birthDateTwo = DateTime.Parse(Console.ReadLine().Trim());
+            TimeSpan ageTwo = DateTime.Now.Subtract(birthDateTwo);
+            TimeSpan ageDifference = age.Subtract(ageTwo);
 
-            Console.WriteLine(now);
-            Console.WriteLine($"{christmas}, {christmas.DayOfYear} days past new years. It was a {christmas.DayOfWeek}. {christmas.DayNumber} days AD.");
-            Console.WriteLine(DateTime.Parse(christmas.ToString()));
+            Console.WriteLine($"Second person is {ageTwo.Days / 365} years, {ageTwo.Days % 365} days, {ageTwo.Hours} hours and {ageTwo.Minutes} minutes old, if you were born at midnight!");
+            Console.WriteLine($"You are {ageDifference.Days / 365} years, {ageDifference.Days % 365} days, {ageDifference.Hours} hours and {ageDifference.Minutes} minutes older, if you were both born at midnight!");
 
-            TimeSpan mySpan = new TimeSpan(10, 5, 30, 15);
-            Console.WriteLine(now.Add(mySpan));
         }
     }
 }

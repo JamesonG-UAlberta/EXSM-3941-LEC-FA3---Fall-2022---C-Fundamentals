@@ -4,12 +4,25 @@
     {
         static void Main(string[] args)
         {
-            // This is more efficient just because we aren't starting and stopping a file stream 100 times, we're sending it all at once.
-            string toWrite = "";
-            for (int i = 1; i <= 100; i++)
+            using (StreamReader reader = File.OpenText("storage.txt"))
             {
-                toWrite += (i + "\n");
+                string lineOfFile = null;
+                while ((lineOfFile = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(lineOfFile);
+                }
             }
+
+            string toWrite = "";
+
+            string userInput;
+            do
+            {
+                Console.Write("Please enter a string: ");
+                userInput = Console.ReadLine().Trim();
+                if (userInput != "end") toWrite += userInput + "\n";
+            } while (userInput != "end");
+
 
             using (StreamWriter writer = File.CreateText("storage.txt"))
             {

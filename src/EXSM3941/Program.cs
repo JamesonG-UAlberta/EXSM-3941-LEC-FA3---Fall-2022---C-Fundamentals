@@ -24,7 +24,7 @@
             } while (userInput != "end");
 
 
-            using (StreamWriter writer = File.CreateText("storage.txt"))
+            using (StreamWriter writer = new StreamWriter(new FileStream("storage.txt", FileMode.CreateNew)))
             {
                 writer.WriteLine(toWrite);
             }

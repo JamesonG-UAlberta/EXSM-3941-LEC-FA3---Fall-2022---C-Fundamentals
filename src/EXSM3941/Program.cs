@@ -47,9 +47,30 @@
             myStack.Pop(); // "A new box."
             myQueue.Dequeue(); // "A person in line."
 
-            
 
 
+            Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+            myDictionary.Add("Walk", "To locomote by way of legs.");
+            myDictionary.Add("See", "To visually observe.");
+            myDictionary.Add("Talk", "To make a noise with intentions of communication.");
+
+            // Bracketed indexing defaults to searching by Key.
+            Console.WriteLine(myDictionary["See"]);
+
+            // You can iterate normally through ".Keys" or ".Values", or use a KeyValuePair to use both at once.
+            foreach(KeyValuePair<string, string> kvp in myDictionary)
+            {
+                Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+            }
+
+            // Pulling a KVP by index.
+            Console.WriteLine(myDictionary.ElementAt(1));
+
+            // SortedDictionary always sorts by the Key. SortedList defaults to the Key but the behaviour can be customized.
+            SortedList<string, string> mySortedList = new SortedList<string, string>();
+            mySortedList.Add("Walk", "To locomote by way of legs.");
+            mySortedList.Add("See", "To visually observe.");
+            mySortedList.Add("Talk", "To make a noise with intentions of communication.");
         }
     }
 }

@@ -4,31 +4,29 @@
     {
         static void Main(string[] args)
         {
-            using (StreamReader reader = File.OpenText("storage.txt"))
-            {
-                string lineOfFile = null;
-                while ((lineOfFile = reader.ReadLine()) != null)
-                {
-                    Console.WriteLine(lineOfFile);
-                }
-            }
+            List<string> myList = new List<string>();
+            myList.Add("Hello, world!");
+            myList.Add("Test.");
+            myList.Add("123");
+            myList.Add("123");
 
-            string toWrite = "";
+            HashSet<string> myHashSet = new HashSet<string>();
+            myHashSet.Add("Hello, world!");
+            myHashSet.Add("Test.");
+            myHashSet.Add("123");
+            myHashSet.Add("123");
 
-            string userInput;
-            do
-            {
-                Console.Write("Please enter a string: ");
-                userInput = Console.ReadLine().Trim();
-                if (userInput != "end") toWrite += userInput + "\n";
-            } while (userInput != "end");
+            SortedSet<string> mySortedSet = new SortedSet<string>();
+            mySortedSet.Add("Hello, world!");
+            mySortedSet.Add("Test.");
+            mySortedSet.Add("123");
+            mySortedSet.Add("123");
 
-
-            using (StreamWriter writer = new StreamWriter(new FileStream("storage.txt", FileMode.CreateNew)))
-            {
-                writer.WriteLine(toWrite);
-            }
-            Console.WriteLine("File saved!");
+            Console.WriteLine(myList[1]);
+            Console.WriteLine(myHashSet.ElementAt(1));
+            Console.WriteLine(myHashSet.ToArray()[1]);
+            Console.WriteLine(mySortedSet.ElementAt(1));
+            Console.WriteLine(mySortedSet.ToArray()[1]);
         }
     }
 }
